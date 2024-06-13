@@ -1,0 +1,25 @@
+[Unit]
+Description=X11 Initialization Container
+After=network-online.target
+
+[Container]
+Image=registry.opensuse.org/home/atgracey/wallboardos/15.5/x11:notaskbar
+ContainerName=x11-container
+#Pod=wallboard-pod
+PodmanArgs=--pod wallboard-pod --privileged
+Environment=XAUTHORITY=/home/user/xauthority/.xauth
+Environment=DISPLAY=:0
+Volume=xauthority:/home/user/xauthority:rw
+Volume=xsockets:/tmp/.X11-unix:rw
+Volume=/run/udev/data:/run/udev/data:rw
+
+[Service]
+Restart=on-failure
+ExecStartPre=-/usr/bin/podman pod rm wallboard-pod
+ExecStartPre=-/usr/bin/podman pod create --name wallboard-pod
+ExecStartPre=-/usr/bin/podman volume rm xauthority xsockets
+ExecStartPre=/usr/bin/podman volume create xauthority
+ExecStartPre=/usr/bin/podman volume create xsockets
+
+[Install]
+WantedBy=multi-user.target default.target
