@@ -1,6 +1,6 @@
 [Unit]
 Description=Wallboard firefox Container
-After=network-online.target x11-init-container.service
+After=network-online.target x11-container.service
 
 [Container]
 Image=registry.opensuse.org/home/atgracey/wallboardos/15.5/firefox:latest
