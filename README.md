@@ -1,5 +1,3 @@
-# wallboard
-
 # Setting Up Quadlet Files and Starting Services
 
 ## Copy the Quadlet Files to the Correct Directory
