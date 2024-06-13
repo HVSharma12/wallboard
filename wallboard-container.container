@@ -1,0 +1,21 @@
+[Unit]
+Description=Wallboard firefox Container
+After=network-online.target x11-init-container.service
+
+[Container]
+Image=registry.opensuse.org/home/atgracey/wallboardos/15.5/firefox:latest
+ContainerName=wallboard-container
+#Pod=wallboard-pod
+PodmanArgs=--pod wallboard-pod
+Environment=URL=https://google.com
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/user/xauthority/.xauth
+Volume=xauthority:/home/user/xauthority:rw
+Volume=xsockets:/tmp/.X11-unix:rw
+User=1000
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target default.target
