@@ -16,6 +16,7 @@ Reload the systemd daemon to recognize the new Quadlet files.
 ```
 sudo systemctl daemon-reload
 ```
+## Create a pod
 
 ## Start the Services in the Correct Order
 
