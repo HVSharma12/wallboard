@@ -16,7 +16,9 @@ Reload the systemd daemon to recognize the new Quadlet files.
 ```
 sudo systemctl daemon-reload
 ```
-## Create a pod
+## Create a pod 'wallboard-pod'
+
+$ podman pod create --name wallboard-pod
 
 ## Start the Services in the Correct Order
 
