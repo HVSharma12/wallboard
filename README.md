@@ -25,11 +25,11 @@ $ podman pod create --name wallboard-pod
 First, start the `x11-container` service:
 
 ```
-sudo systemctl start x11-container.container
+sudo systemctl start x11-container
 ```
 
 Finally, start the `wallboard-container` service:
 
 ```
-sudo systemctl start wallboard-container.container
+sudo systemctl start wallboard-container
 ```
